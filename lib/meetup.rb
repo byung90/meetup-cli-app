@@ -8,7 +8,13 @@ class Meetup
       self.send("#{key}=", value)
     end
     @@all << self
-    puts @@all
+  end
+
+  def add_meetup_details(meetup_hash)
+    meetup_hash.each do |key, value|
+      self.send("#{key}=", value)
+    end
+    self
   end
 
   def self.create_from_list(meetups)
