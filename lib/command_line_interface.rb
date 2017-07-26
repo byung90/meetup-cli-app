@@ -7,6 +7,7 @@ class CommandLineInteface
 
   def run
     make_meetups
+    add_details_to_meetups
     # add_attributes_to_students
     # display_students
   end
@@ -18,8 +19,8 @@ class CommandLineInteface
 
   def add_details_to_meetups
     Meetup.all.each do |meetup|
-      details = Scrapper.scrape_profile_page(meetup.meetup_link)
-      student.add_student_attributes(attributes)
+      details = Scrapper.scrape_detail_page(meetup.meetup_link)
+      # student.add_student_attributes(attributes)
     end
   end
   #

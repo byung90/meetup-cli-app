@@ -21,14 +21,14 @@ class Scrapper
     meetup = {}
     page = Nokogiri::HTML(open(meetup_link))
 
-    if page.include?("C_page")
+    if page.css("#meta-leaders a").text != ""
       meetup[:organizer] = page.css("#meta-leaders a").text
-      meetup[:location] = page.css(".adr h3 a span").attr(".addressLocality").text
+      meetup[:location] = page.css(".adr h3 a span").text
     else
       meetup[:organizer] = ""
       meetup[:location] = ""
     end
-
+    meetup
   end
 
 end
